@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './cards.dart';
+import './matches.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Match match = new Match();
+
   Widget _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.transparent,
@@ -79,17 +82,23 @@ class _MyHomePageState extends State<MyHomePage> {
               new RoundIconButton.large(
                 icon: Icons.clear,
                 iconColor: Colors.red,
-                onPressed: () {},
+                onPressed: () {
+                  match.nope();
+                },
               ),
               new RoundIconButton.small(
                 icon: Icons.star,
                 iconColor: Colors.blue,
-                onPressed: () {},
+                onPressed: () {
+                  match.superLike();
+                },
               ),
               new RoundIconButton.large(
                 icon: Icons.favorite,
                 iconColor: Colors.green,
-                onPressed: () {},
+                onPressed: () {
+                  match.like();
+                },
               ),
               new RoundIconButton.small(
                 icon: Icons.lock,
@@ -105,7 +114,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: new DraggableCard(),
+      body: new DraggableCard(
+        match: match,
+      ),
       bottomNavigationBar: _buildBottomBar(),
     );
   }
