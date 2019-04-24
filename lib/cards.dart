@@ -62,6 +62,7 @@ class _DraggableCardState extends State<DraggableCard>
   @override
   void dispose() {
     slideBackAnimation.dispose();
+    slideOutAnimation.dispose();
     super.dispose();
   }
 
@@ -85,17 +86,9 @@ class _DraggableCardState extends State<DraggableCard>
     final isInNopeRegion = (cardOffset.dx / context.size.width) < -0.45;
     final isInLikeRegion = (cardOffset.dx / context.size.width) > 0.45;
     final isInSuperLikeRegion = (cardOffset.dy / context.size.height) < -0.40;
-    final testDrag = dragVector * (2 * context.size.width);
-
-    print('dragVector: $dragVector');
-    // print('isInNopeRegion: $isInNopeRegion');
-    // print('isInLikeRegion: $isInLikeRegion');
-    // print('isInSuperLikeRegion: $isInSuperLikeRegion');
-    print('testDrag: $testDrag');
 
     setState(() {
       if (isInNopeRegion || isInLikeRegion) {
-        print('isInNopeRegion--------------------isInLikeRegion');
         slideOutTween = new Tween(
             begin: cardOffset, end: dragVector * (2 * context.size.width));
 
@@ -109,9 +102,6 @@ class _DraggableCardState extends State<DraggableCard>
         slideBackAnimation.forward(from: 0.0);
       }
     });
-
-    slideBackStart = cardOffset;
-    slideBackAnimation.forward(from: 0.0);
   }
 
   double _rotation(Rect dragBounds) {
