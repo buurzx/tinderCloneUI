@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import './cards.dart';
 import './matches.dart';
+import './profiles.dart';
 
 void main() => runApp(MyApp());
+
+final MatchEngine matchEngine = new MatchEngine(
+    matches: demoProfiles.map((Profile profile) {
+  return Match(profile: profile);
+}).toList());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -83,21 +89,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: Icons.clear,
                 iconColor: Colors.red,
                 onPressed: () {
-                  match.nope();
+                  matchEngine.currentMatch.nope();
                 },
               ),
               new RoundIconButton.small(
                 icon: Icons.star,
                 iconColor: Colors.blue,
                 onPressed: () {
-                  match.superLike();
+                  matchEngine.currentMatch.superLike();
                 },
               ),
               new RoundIconButton.large(
                 icon: Icons.favorite,
                 iconColor: Colors.green,
                 onPressed: () {
-                  match.like();
+                  matchEngine.currentMatch.like();
                 },
               ),
               new RoundIconButton.small(
@@ -114,8 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: new DraggableCard(
-        match: match,
+      body: new CardStack(
+        matchEngine: matchEngine,
       ),
       bottomNavigationBar: _buildBottomBar(),
     );
