@@ -3,6 +3,8 @@ import 'package:tinder/Screens/Welcome/welcome_screen.dart';
 import './cards.dart';
 import './matches.dart';
 import './profiles.dart';
+import 'Screens/Message/message.dart';
+import 'Screens/Profile/profile.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColorBrightness: Brightness.light,
@@ -50,7 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
           size: 40.0,
         ),
         onPressed: () {
-        
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return ProfileScreen();
+              },
+            ),
+          );
         },
       ),
       title: new FlutterLogo(
@@ -65,7 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
             size: 40.0,
           ),
           onPressed: () {
-          
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return MessageScreen();
+                },
+              ),
+            );
           },
         ),
       ],
