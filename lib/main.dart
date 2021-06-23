@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tinder/Screens/Welcome/welcome_screen.dart';
 import './cards.dart';
 import './matches.dart';
 import './profiles.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColorBrightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: WelcomeScreen(),
     );
   }
 }
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
           size: 40.0,
         ),
         onPressed: () {
-          // TODO
+        
         },
       ),
       title: new FlutterLogo(
@@ -64,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             size: 40.0,
           ),
           onPressed: () {
-            // TODO
+          
           },
         ),
       ],

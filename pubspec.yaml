@@ -26,6 +26,7 @@ dependencies:
 
   # fluttery: ^0.0.8
   fluttery_dart2: ^0.0.9
+  flutter_svg: ^0.19.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,8 @@ flutter:
     - assets/photo_2.jpg
     - assets/photo_3.jpg
     - assets/photo_4.jpg
+    - assets/images/
+    - assets/icons/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
