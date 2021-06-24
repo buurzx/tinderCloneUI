@@ -27,7 +27,7 @@ dependencies:
   # fluttery: ^0.0.8
   fluttery_dart2: ^0.0.9
   flutter_svg: ^0.19.1
-
+  outline_material_icons: ^0.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -10,6 +10,7 @@ import '/components/rounded_input_field.dart';
 import '/components/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import '/main.dart';
+import 'package:outline_material_icons/outline_material_icons.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -64,6 +65,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedInputField(
+                  icon: Icons.person,
                   //controller: _emailField;
                   hintText: "Last Name",
                   onChanged: (value) {
@@ -91,7 +93,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedInputField(
-                  maxIn: 10,
+                  type: TextInputType.number,
                   icon: Icons.phone,
                   //controller: _emailField;
                   hintText: "Mobile Number",
@@ -104,16 +106,20 @@ class _BodyState extends State<Body> {
                     if (value.isEmpty) {
                       return 'Please enter your mobile number';
                     }
+                    if (value.length != 10) {
+                      return 'Mobile Number must be of 10 digit';
+                    }
                     return null;
                   },
                 ),
                 RoundedInputField(
+                  type: TextInputType.number,
+                  icon: Icons.format_list_numbered_outlined,
                   //controller: _emailField;
                   hintText: "Age",
                   onChanged: (value) {
-/*
-                    number = '$value';
-*/
+                    age = int.tryParse(value);
+
                   },
                   validator: (value) {
                     if (value.isEmpty) {
@@ -123,6 +129,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedInputField(
+                  icon: OMIcons.person,
                   //controller: _emailField;
                   hintText: "Gender",
                   onChanged: (value) {
@@ -150,7 +157,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedInputField(
-                  maxIn: 75,
+                  maxIn: 4,
                   icon: Icons.info_outline,
                   //controller: _emailField;
                   hintText: "Tell us about yourself",
@@ -166,6 +173,7 @@ class _BodyState extends State<Body> {
                 ),
                 RoundedInputField(
                   //controller: _emailField;
+                  icon: Icons.email_outlined,
                   hintText: "Your Email",
                   onChanged: (value) {
                     email = '$value';
@@ -181,6 +189,7 @@ class _BodyState extends State<Body> {
                   },
                 ),
                 RoundedPasswordField(
+                  // icon:Icons.password_outlined,
                   onChanged: (value) {
                     pass = '$value';
                   },
@@ -205,6 +214,8 @@ class _BodyState extends State<Body> {
                             builder: (context) =>
                                 MyHomePage(title: 'Flutter Demo Home Page')),
                       );
+                    } else {
+                      return;
                     }
                   },
                 ),
@@ -212,6 +223,7 @@ class _BodyState extends State<Body> {
                 AlreadyHaveAnAccountCheck(
                   login: false,
                   press: () {
+                    _formKey.currentState.save();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

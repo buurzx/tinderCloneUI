@@ -5,7 +5,7 @@ import 'conList.dart';
 import '/main.dart';
 
 class MessageScreen extends StatelessWidget {
-  List<Users> chatUsers = [
+  final List<Users> chatUsers = [
     Users(
         name: "Dhairysheel",
         messageText: "Hi, This is chat screen.",
@@ -87,7 +87,7 @@ class MessageScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: 16),
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
-                return conList(
+                return ConList(
                   name: chatUsers[index].name,
                   messageText: chatUsers[index].messageText,
                   imageUrl: chatUsers[index].imageURL,

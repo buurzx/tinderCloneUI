@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'IndvChat/chat.dart';
 
-class conList extends StatefulWidget{
-  String name;
-  String messageText;
-  String imageUrl;
-  String time;
-  bool isMessageRead;
-  conList({@required this.name,@required this.messageText,@required this.imageUrl,@required this.time,@required this.isMessageRead});
+class ConList extends StatefulWidget{
+  final String name;
+  final String messageText;
+  final String imageUrl;
+  final String time;
+  final bool isMessageRead;
+  ConList({@required this.name,@required this.messageText,@required this.imageUrl,@required this.time,@required this.isMessageRead});
   @override
-  _conListState createState() => _conListState();
+  _ConListState createState() => _ConListState();
 }
 
-class _conListState extends State<conList> {
+class _ConListState extends State<ConList> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

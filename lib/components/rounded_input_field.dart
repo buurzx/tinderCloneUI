@@ -3,37 +3,48 @@ import 'package:flutter/services.dart';
 import '/components/text_field_container.dart';
 import '/constants.dart';
 
-class RoundedInputField extends StatelessWidget {
+class RoundedInputField extends StatefulWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
   final Function validator;
+  final TextInputType type;
   final int maxIn;
   const RoundedInputField(
       {Key key,
       this.hintText,
+      this.type,
       this.icon,
       this.onChanged,
       this.validator,
-      this.maxIn = 200})
+      this.maxIn})
       : super(key: key);
 
   @override
+  _RoundedInputFieldState createState() => _RoundedInputFieldState();
+}
+
+class _RoundedInputFieldState extends State<RoundedInputField> {
+  @override
   Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: TextFormField(
-        maxLines: maxIn,
-        textInputAction: TextInputAction.next,
-        onChanged: onChanged,
-        validator: validator,
-        cursorColor: kPrimaryColor,
-        decoration: InputDecoration(
-          icon: Icon(
-            icon,
-            color: kPrimaryColor,
+    // Size size = MediaQuery.of(context).size;
+    return Container(
+      child: TextFieldContainer(
+        child: TextFormField(
+          keyboardType: widget.type,
+          maxLines: widget.maxIn,
+          textInputAction: TextInputAction.next,
+          onChanged: widget.onChanged,
+          validator: widget.validator,
+          cursorColor: kPrimaryColor,
+          decoration: InputDecoration(
+            icon: Icon(
+              widget.icon,
+              color: kPrimaryColor,
+            ),
+            hintText: widget.hintText,
+            border: InputBorder.none,
           ),
-          hintText: hintText,
-          border: InputBorder.none,
         ),
       ),
     );

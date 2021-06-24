@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tinder/main.dart';
 
 class ProfileScreen extends StatelessWidget {
+  static const routeName = './ProfileScreen';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
