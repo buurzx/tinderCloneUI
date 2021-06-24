@@ -64,10 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
       ),
-      title: new FlutterLogo(
-        size: 30.0,
-        textColor: Colors.red,
-      ),
+
       actions: <Widget>[
         new IconButton(
           icon: new Icon(

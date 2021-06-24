@@ -95,6 +95,7 @@ class _BodyState extends State<Body> {
                   );
                 },
               ),
+              SizedBox(height: 10,)
             ],
           ),
         ),
