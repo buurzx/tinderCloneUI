@@ -18,8 +18,14 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   String email;
-  String name;
+  String username;
+  String fName;
+  String lName;
+  String gender;
+  String location;
   String pass;
+  int number;
+  int age;
   final _formKey = GlobalKey<FormState>();
   List<bool> isSelected = [false, false, false];
   List<String> genderOptions = ['Male', 'Female', 'Others'];
@@ -44,14 +50,116 @@ class _BodyState extends State<Body> {
                   height: size.height * 0.35,
                 ),
                 RoundedInputField(
+                  icon: Icons.person,
                   //controller: _emailField;
-                  hintText: "Name",
+                  hintText: "First Name",
                   onChanged: (value) {
-                    name = '$value';
+                    fName = '$value';
                   },
                   validator: (value) {
                     if (value.isEmpty) {
-                      return 'Please enter your name';
+                      return 'Please enter your first name';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  //controller: _emailField;
+                  hintText: "Last Name",
+                  onChanged: (value) {
+                    lName = '$value';
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your last name';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  icon: Icons.account_circle,
+                  //controller: _emailField;
+                  hintText: "Username",
+                  onChanged: (value) {
+                    username = '$value';
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter a username';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  maxIn: 10,
+                  icon: Icons.phone,
+                  //controller: _emailField;
+                  hintText: "Mobile Number",
+                  onChanged: (value) {
+/*
+                    number = '$value';
+*/
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your mobile number';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  //controller: _emailField;
+                  hintText: "Age",
+                  onChanged: (value) {
+/*
+                    number = '$value';
+*/
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your age';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  //controller: _emailField;
+                  hintText: "Gender",
+                  onChanged: (value) {
+                    gender = '$value';
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your Gender';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  icon: Icons.location_on,
+                  //controller: _emailField;
+                  hintText: "Location",
+                  onChanged: (value) {
+                    location = '$value';
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your location';
+                    }
+                    return null;
+                  },
+                ),
+                RoundedInputField(
+                  maxIn: 75,
+                  icon: Icons.info_outline,
+                  //controller: _emailField;
+                  hintText: "Tell us about yourself",
+                  onChanged: (value) {
+                    location = '$value';
+                  },
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter your Bio';
                     }
                     return null;
                   },
@@ -119,14 +227,17 @@ class _BodyState extends State<Body> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SocalIcon(
+                      colour: Color(0xFF256BB3),
                       iconSrc: "assets/icons/facebook.svg",
                       press: () {},
                     ),
                     SocalIcon(
+                      colour: Color(0xFF40BBF4),
                       iconSrc: "assets/icons/twitter.svg",
                       press: () {},
                     ),
                     SocalIcon(
+                      colour: Color(0xFFDD4D3F),
                       iconSrc: "assets/icons/google-plus.svg",
                       press: () {},
                     ),
@@ -160,7 +271,7 @@ class _GenderSelectorState extends State<GenderSelector> {
         ToggleButtons(
           borderRadius: BorderRadius.circular(10),
           color: kPrimaryColor,
-          disabledColor:kPrimaryColor ,
+          disabledColor: kPrimaryColor,
           children: <Widget>[Text('Male'), Text('Female'), Text('Others')],
           isSelected: widget.isSelected,
           onPressed: (int index) {

@@ -5,10 +5,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SocalIcon extends StatelessWidget {
   final String iconSrc;
   final Function press;
+  final Color colour;
   const SocalIcon({
     Key key,
     this.iconSrc,
     this.press,
+    this.colour,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,7 @@ class SocalIcon extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
+          color: colour,
           border: Border.all(
             width: 2,
             color: kPrimaryLightColor,
