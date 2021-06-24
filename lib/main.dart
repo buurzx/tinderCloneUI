@@ -8,6 +8,7 @@ import './matches.dart';
 import './profiles.dart';
 import 'Screens/Message/message.dart';
 import 'Screens/Profile/profile.dart';
+import 'Screens/Splash_screen/splash.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         primaryColorBrightness: Brightness.light,
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+
+      home: SplashScreen(),
       routes: {
         WelcomeScreen.routeName: (ctx) => WelcomeScreen(),
         LoginScreen.routeName: (ctx) => LoginScreen(),
@@ -36,6 +38,7 @@ class MyApp extends StatelessWidget {
         ProfileScreen.routeName: (ctx) => ProfileScreen(),
         Chatpage.routeName: (ctx) => Chatpage(name: 'CHATS')
       },
+
     );
   }
 }
@@ -76,10 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
         },
       ),
-      title: new FlutterLogo(
-        size: 30.0,
-        textColor: Colors.red,
-      ),
+
       actions: <Widget>[
         new IconButton(
           icon: new Icon(
